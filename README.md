@@ -1,6 +1,6 @@
 # Getting Started:
   - This application was built with Visual Studio 2017 CE and VS Code and hasn't been tested on any other version of Visual Studio.
-  - Install NodeJS (Version 6 or up) & Node Package Manager (NPM)
+  - NodeJS (Version 6 or up) & Node Package Manager (NPM) are required for build the Scripts.
   - Globally install gulp via node package manager:
 
 ```sh
