@@ -1,0 +1,17 @@
+Id,Name,Description,ImageUrl,Brand,Category,Qty,Cost,Price
+{3763A3BF-8C00-4971-8389-AAE4A98299C6},Square,Four equal sides and four 90 degree angles.,/square,{4B0B7E1B-AAE4-4834-938A-CD5854AD205B},Quadrilateral,500,5.25,15.99
+{83AA348F-BBCE-4387-A4FA-413A39C81723},Rectangle,Four 90 angles and two sets of equal parallel sides.,/rectangle,{4B0B7E1B-AAE4-4834-938A-CD5854AD205B},Quadrilateral,325,6.25,16.99
+{E5C4265C-8435-45C5-B791-CFA5DF22D2A0},Rhombus,"A shape with four equal sides, where opposite sides are parallel. Opposite angles are equal but adjacent angles cannot be equal (or else it is a square).",/rhombus,{4B0B7E1B-AAE4-4834-938A-CD5854AD205B},Quadrilateral,27,6.5,17.99
+{62C438D2-6A6A-4F6D-888C-75FDF33EDB6C},Kite,A shape with two pairs of equal sides where the pairs are adjacent to eachother.,/kite,{4B0B7E1B-AAE4-4834-938A-CD5854AD205B},Quadrilateral,53,7.5,19.99
+{8EBBC227-B9FB-4828-8308-9F798A2B120D},Circle,A round shape where each pair of opposite points have the same distance (e.g. diameter).,/circle,{3CF943EE-F379-47D2-BDEA-B4CA41AE35D6},Curved,721,4.25,12.49
+{9EFF908A-2B38-4337-A564-613E07E40820},Ellipse,A curved object that looks like a circle that was stretched across one axis.,/ellipse,{3CF943EE-F379-47D2-BDEA-B4CA41AE35D6},Curved,237,6.4,14.99
+{28314D06-8211-43C0-BAFA-231FD9F81BD9},Crescent,A curved shape that represents the intersection of two arcs.,/crescent,{3CF943EE-F379-47D2-BDEA-B4CA41AE35D6},Curved,13,6.75,18.99
+{2318742A-7FB7-4673-B45A-88C9E70C4AF8},Equilateral,A traingle with three equal sides and three equal angles.,/eq_triangle,{934136E2-AA25-4724-9A25-4B57EB59C1B8},Triangle,12,5.35,10.99
+{3E14D0DC-80E6-4BBF-AAC6-EACA4FF099AB},Isosceles Triangle,A triangle with two equal side and two equal angles.,/is_triangle,{934136E2-AA25-4724-9A25-4B57EB59C1B8},Triangle,55,5.55,11.99
+{DAE1A075-8773-41C6-B92B-58DC6C8F7DCA},Right Angle Triangle,A triangle with one angle that equals 90 degrees.,/rt_triangle,{934136E2-AA25-4724-9A25-4B57EB59C1B8},Triangle,73,5.75,14.99
+{70844354-E1B2-4208-8498-228F3FAE0BCB},Pentagon,A polygon with five sides.,/pentagon,{84971922-5353-4824-88D6-4D79E3989241},Polygon,52,12.5,19.99
+{C12A1DA3-6BF9-4108-9AD9-75E4F8BBC90F},Hexagon,A polygon with six sides.,/hexagon,{84971922-5353-4824-88D6-4D79E3989241},Polygon,113,13,19.99
+{4B952820-2725-41FB-88C7-8E7E4A13E880},Heptagon,A polygon with seven sides.,/heptagon,{84971922-5353-4824-88D6-4D79E3989241},Polygon,432,14.25,21.99
+{49460A06-9A31-43FD-99D9-E5F91A9CAC53},Octagon,A polygon with eight sides.,/octagon,{84971922-5353-4824-88D6-4D79E3989241},Polygon,23,14.5,21.99
+{28E0B15D-2ABC-4BD1-A362-92728219DE3E},Cube,A three dimensional object with 6 square faces (like a box).,/cube,{FFCB37A1-F987-4A83-8679-EB9394C2822F},3D,11,16,29.99
+{1EA4C866-014A-451D-AB31-8A0BC04DD6C7},Cylinder,A three dimensional object with two parallel circle faces.,/cylinder,{FFCB37A1-F987-4A83-8679-EB9394C2822F},3D,88,17.5,32.99

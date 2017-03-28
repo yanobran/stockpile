@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StockPile.Query\StockPile.Query.csproj" />
+    <ProjectReference Include="..\StockPile.Repository\StockPile.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

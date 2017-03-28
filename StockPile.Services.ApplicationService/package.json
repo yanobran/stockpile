@@ -1,0 +1,19 @@
+{
+  "name": "stockpile-ApplicationService",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker-build": "npm run docker-clean && npm run dotnet-publish && docker build -t stock-pile-svc .",
+    "docker-run": "docker run -it --name stockpile-svc -d -p 80 stock-pile-svc",
+    "docker-console": "docker run --name stockpile-svc -p 80 stock-pile-svc",
+    "docker-clean": "docker stop stockpile-svc && docker rm stockpile-svc",
+    "dotnet-publish": "dotnet build && dotnet publish -o ./obj/Docker/publish && cp ../_data/* obj/Docker/publish"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "rimraf": "^2.6.1"
+  }
+}

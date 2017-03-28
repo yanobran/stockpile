@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <AssemblyName>StockPile.Services.ApplicationService</AssemblyName>
+    <RootNamespace>StockPile.Services.ApplicationService</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StockPile.Data.MemoryDbImpl\StockPile.Data.MemoryDbImpl.csproj" />
+    <ProjectReference Include="..\StockPile.Messaging\StockPile.Messaging.csproj" />
+    <ProjectReference Include="..\StockPile.Query.Handlers\StockPile.Query.Handlers.csproj" />
+    <ProjectReference Include="..\StockPile.Query\StockPile.Query.csproj" />
+    <ProjectReference Include="..\StockPile.Repository\StockPile.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

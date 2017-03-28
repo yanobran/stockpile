@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="2.16.3" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StockPile.Model.Fulfillment\StockPile.Model.Fulfillment.csproj" />
+    <ProjectReference Include="..\StockPile.Model.Inventory\StockPile.Model.Inventory.csproj" />
+    <ProjectReference Include="..\StockPile.Model\StockPile.Model.csproj" />
+    <ProjectReference Include="..\StockPile.Repository\StockPile.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
