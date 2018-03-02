@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace StockPile.Api.config
+﻿namespace StockPile.Api.config
 {
-    public class StockPileOptions
+    /// <summary>
+    /// Options class for injecting AppSettings into StockPile Api Controllers
+    /// </summary>
+    public class StockApiPileOptions
     {
-        public StockPileOptions()
-        {
-            // initialize any defaults here
-        }
+        public StockApiPileOptions() { }
+
         public string ServiceBase { get; set; }
     }
 }

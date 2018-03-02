@@ -5,6 +5,26 @@ using System.Text;
 
 namespace StockPile.Command
 {
+    public struct Test2 : ICommand
+    {
+        public Test2(string value)
+        {
+            this.Value = value;
+        }
+
+        public string Value;
+    }
+
+    public struct Test : ICommand
+    {
+        public Test(string value)
+        {
+            this.Value = value;
+        }
+
+        public string Value;
+    }
+
     public struct SubmitCart : ICommand
     {
         public SubmitCart(ShoppingCart cart)

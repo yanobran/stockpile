@@ -1,8 +1,9 @@
-﻿using System;
+﻿using StockPile.Messaging;
+using System;
 
 namespace StockPile.Command
 {
-    public interface ICommand
+    public interface ICommand : IMessage
     {
     }
 }

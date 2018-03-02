@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
+    <AssemblyName>StockPile.Model.Users</AssemblyName>
+    <RootNamespace>StockPile.Model.Users</RootNamespace>
   </PropertyGroup>
 
 </Project>

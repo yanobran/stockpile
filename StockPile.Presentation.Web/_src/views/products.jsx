@@ -1,14 +1,26 @@
 ﻿import React from 'react';
 import { inject, observer } from 'mobx-react';
+import { hashHistory } from 'react-router';
 
+@inject('cartStore') 
 @inject('inventoryStore') 
 @observer class Products extends React.Component {
+    constructor(props, context) {
+        super(props, context);
 
+        this.addToCart = this.addToCart.bind(this);
+    }
+    
     truncate(str, size) {
         if(str.length > size) {
             return str.substring(0, Math.min(size, str.length)) + '...';
         }
         return str;
+    }
+
+    addToCart(product) {
+        this.props.cartStore.addToCart(product);
+        hashHistory.push('/cart');
     }
 
     render() {
@@ -26,23 +38,33 @@ import { inject, observer } from 'mobx-react';
                                 <img src={"/images" + product.ImageUrl + ".png"}/>
                             </div>
                             <div className="card-content">
-                                <h5>{product.Name}</h5>
                                 <div className="row">
-                                    <em>{'BRAND:    ' + brand.Name}</em>
+  	                                <div className="col s7">
+                                        <h5>{product.Name}</h5>
+                                    </div>
+                                    <div className="col s5 right-align red-text text-darken-2">
+                                        <h5>${product.Stock.Price}</h5>
+                                    </div>
                                 </div>
                                 <div className="row">
-                                    <em>{'CATEGORY: ' + product.Category}</em>
+                                    <div className="col s12">
+                                        <em>{'BRAND:    ' + brand.Name}</em>
+                                    </div>
                                 </div>
-                                <p>{this.truncate(product.Description, 50)}</p>
+                                <div className="row">
+                                    <div className="col s12">
+                                        <em>{'CATEGORY: ' + product.Category}</em>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col s12">{this.truncate(product.Description, 50)}</div>
+                                </div>
                             </div>
                             <div className="card-action">
                                 <div className="row" style={{marginBottom:"0"}}>
-                                <span className="col s6">
-                                    <a>{product.Stock.Quantity}</a>
-                                </span>
-                                <span className="col s6 right-align">
-                                    <a>${product.Stock.Price}</a>
-                                </span>
+                                    <span className="col s6 offset-s6 right-align">
+                                        <button className="waves-effect waves-light btn" onClick={(evt) => this.addToCart(product)}>+ Add to Cart</button>
+                                    </span>
                                 </div>
                             </div>
                         </div>

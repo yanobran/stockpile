@@ -4,8 +4,8 @@ using System.Text;
 
 namespace StockPile.Messaging
 {
-    public interface IMessageHandler
+    public interface IMessageHandler<T>
     {
-        void HandleMessage<T>(T message) where T : IMessage;
+        void handle(T message);
     }
 }

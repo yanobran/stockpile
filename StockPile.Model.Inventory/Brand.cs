@@ -2,7 +2,7 @@
 
 namespace StockPile.Model.Inventory
 {
-    public class Brand : IHasKey<Guid>
+    public class Brand
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

@@ -12,7 +12,7 @@ import { hashHistory } from 'react-router';
     }
 
     componentWillReact() {
-        console.log("I will re-render, since the todo has changed!");
+        
     }
     
     onFilterChanged(evt, prop) {

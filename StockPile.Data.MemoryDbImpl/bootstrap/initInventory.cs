@@ -1,11 +1,10 @@
-﻿using StockPile.Model.Inventory;
+﻿using StockPile.Model;
+using StockPile.Model.Inventory;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
-
-namespace StockPile.Data.MemoryDbImpl.bootstrap
+namespace StockPile.Data.MemoryDbImpl
 {
     internal class InitInventory
     {

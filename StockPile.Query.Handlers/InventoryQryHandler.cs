@@ -13,10 +13,14 @@ namespace StockPile.Query.Handlers
         IQueryHandler<CategoryQry>
     { }
 
+    /// <summary>
+    /// Query Handler for retrieving Inventory 
+    /// </summary>
     public class InventoryQryHandler : IInventoryQryHandler
     {
-        private IStockPileRepository _repository;
-        public InventoryQryHandler(IStockPileRepository repository)
+        private readonly IInventoryRepository _repository;
+
+        public InventoryQryHandler(IInventoryRepository repository)
         {
             _repository = repository;
         }

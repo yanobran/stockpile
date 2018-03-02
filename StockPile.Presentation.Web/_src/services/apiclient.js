@@ -1,5 +1,7 @@
 ﻿'use strict';
 
+// TODO - refactor, pull the API URL and inject environment specific config file, wire up in build with gulp
+
 const GetBrands = () => {
     return new Promise((resolve, reject) => {
         $.ajax('http://localhost:57339/api/inventory/brands', {
@@ -71,12 +73,28 @@ const GetProducts = (qry) => {
     });
 }
 
-/*****/
-
-/*****/
+const SubmitCart = (cart) => {
+    return new Promise((resolve, reject) => {
+        $.ajax('http://localhost:57339/api/fulfillment/submit', {
+            method: 'POST',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(cart),
+            success: (data) => {
+                Materialize.toast('Successfully submitted cart!', 4000, 'green');
+                return resolve(data);
+            },
+            error: () => {
+                Materialize.toast('Error submitting cart! :(', 4000, 'red');
+                return reject();
+            }
+        });
+    });
+};
 
 module.exports = {
     GetBrands,
     GetCategories,
-    GetProducts
+    GetProducts,
+    SubmitCart
 };

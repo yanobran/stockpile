@@ -11,9 +11,9 @@ using StockPile.Repository;
 using StockPile.Data.MemoryDbImpl;
 using StockPile.Query.Handlers;
 using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Hosting.Server.Features;
-using StockPile.Data.MemoryDbImpl.bootstrap;
 using StockPile.Messaging.Http;
+using StockPile.Command.Handlers;
+using StockPile.Services.ApplicationService.Middleware;
 
 namespace StockPile.Services.ApplicationService
 {
@@ -37,34 +37,23 @@ namespace StockPile.Services.ApplicationService
         {
             services.AddRouting();
 
-            services.AddSingleton<IStockPileRepository, InventoryMemRepo>();
-
+            // App Settings
             services.Configure<MemoryDbConfig>(Configuration.GetSection("MemoryDb"));
-            //services.Configure<HttpServiceBusConfig>(Configuration.GetSection("HttpServiceBus"));
+            services.Configure<HttpServiceBusConfig>(Configuration.GetSection("HttpServiceBus"));
 
+            // Singletons
+            services.AddSingleton<IInventoryRepository, InventoryMemoryRepo>();
+            services.AddSingleton<IFulfillmentRepository, FulfillmentMemoryRepo>();
+            services.AddSingleton<IHttpServiceBus, StockPileServiceBus>();
+
+            // Handlers
             services.AddTransient<IInventoryQryHandler, InventoryQryHandler>();
+            services.AddTransient<IFulfillmentCmdHandler, FulfillmentCmdHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            Console.WriteLine(">>>> Configuring Application");
-            Console.WriteLine($">>>> WebRootPath: {env.WebRootPath}");
-            
-            var svrfeatures = (Microsoft.AspNetCore.Http.Features.FeatureCollection)app.Properties["server.Features"];
-            
-            foreach(KeyValuePair<Type, object> feature in svrfeatures)
-            {
-                var addrFeature = (IServerAddressesFeature)feature.Value;
-                var addresses = addrFeature?.Addresses;
-                Console.WriteLine(">>>> Host Addresses:");
-
-                foreach(var a in addresses)
-                {
-                    Console.WriteLine($"\t--> Address: {a}");
-                }
-            }
-
             loggerFactory.AddConsole();
 
             if (env.IsDevelopment())
@@ -72,11 +61,12 @@ namespace StockPile.Services.ApplicationService
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.Map("/inject", appBuilder =>
-            //{
-            //    appBuilder.UseMiddleware<HttpServiceBus>();
-            //    appBuilder.Run(async (context) => { });
-            //});
+            app.Map("/inject", appBuilder =>
+            {
+                //appBuilder.UseMiddleware<ServiceBusMiddleware>();
+                appBuilder.UseMiddleware<HttpServiceBusRouter>();
+                appBuilder.Run(async (context) => { });
+            });
 
             app.Map("/inventory", appBuilder =>
             {

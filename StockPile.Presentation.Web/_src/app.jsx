@@ -2,6 +2,7 @@
 import { Router, Route, hashHistory } from 'react-router';
 import { Provider } from 'mobx-react';
 import inventoryStore from './store/InventoryStore';
+import cartStore from './store/CartStore';
 import StockPile from './stockpile';
 import Product from './views/product';
 import Products from './views/products';
@@ -11,7 +12,7 @@ import Order from './views/Order';
 module.exports = class App extends React.Component {
     render() {
         return (
-            <Provider inventoryStore={inventoryStore}>
+            <Provider inventoryStore={inventoryStore} cartStore={cartStore}>
                 <Router history={hashHistory}>
                     <Route path="/" component={StockPile}>
                         <Route path="products" component={Products} />

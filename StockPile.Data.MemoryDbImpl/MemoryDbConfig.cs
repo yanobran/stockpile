@@ -4,6 +4,7 @@ using System.Text;
 
 namespace StockPile.Data.MemoryDbImpl
 {
+
     public class MemoryDbConfig
     {
         public MemoryDbConfig() { DataPath = ""; }

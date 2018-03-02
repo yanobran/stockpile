@@ -12,9 +12,9 @@ namespace StockPile.Api.Controllers
     [Route("api/[controller]")]
     public class InventoryController : Controller
     {
-        private readonly StockPileOptions _options;
+        private readonly StockApiPileOptions _options;
 
-        public InventoryController(IOptions<StockPileOptions> optionsWrapper)
+        public InventoryController(IOptions<StockApiPileOptions> optionsWrapper)
         {
             _options = optionsWrapper.Value;
         }

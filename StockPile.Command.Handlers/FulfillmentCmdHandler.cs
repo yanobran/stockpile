@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using StockPile.Repository;
 using StockPile.Model.Fulfillment;
+using StockPile.Messaging;
 
 namespace StockPile.Command.Handlers
 {
     public interface IFulfillmentCmdHandler :
-        ICommandHandler<ProcessOrder>,
-        ICommandHandler<SubmitCart>
+        IMessageHandler<ProcessOrder>,
+        IMessageHandler<SubmitCart>,
+        IMessageHandler<Test>
     {
     }
 
@@ -33,7 +35,7 @@ namespace StockPile.Command.Handlers
         public void handle(SubmitCart command)
         {
             List<OrderItem> items = new List<OrderItem>();
-            foreach(var prop in command.Cart.Products)
+            foreach (var prop in command.Cart.Products)
             {
                 items.Add(new OrderItem()
                 {
@@ -45,12 +47,18 @@ namespace StockPile.Command.Handlers
             var order = new Order()
             {
                 Id = Guid.NewGuid(),
+                CreatedDate = DateTime.Now,
                 Items = items,
                 UserId = Guid.Empty,
                 Status = OrderStatus.Pending
             };
 
             _repository.AddOrder(order);
+        }
+
+        public void handle(Test message)
+        {
+            Console.WriteLine("Handled test message!");
         }
     }
 }

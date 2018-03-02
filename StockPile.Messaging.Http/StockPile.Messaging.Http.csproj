@@ -5,8 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StockPile.Command.Handlers\StockPile.Command.Handlers.csproj" />
     <ProjectReference Include="..\StockPile.Messaging\StockPile.Messaging.csproj" />
-    <ProjectReference Include="..\StockPile.Model.Fulfillment\StockPile.Model.Fulfillment.csproj" />
   </ItemGroup>
 
 </Project>

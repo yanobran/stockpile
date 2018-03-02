@@ -4,6 +4,6 @@ namespace StockPile.Messaging
 {
     public interface IMessageBus
     {
-        void Send<T>(T Message) where T : IMessage;
+        void Send<T>(T message);
     }
 }

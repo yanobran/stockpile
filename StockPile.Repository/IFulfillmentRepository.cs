@@ -7,7 +7,7 @@ namespace StockPile.Repository
 {
     public interface IFulfillmentRepository
     {
-        IEnumerable<Order> GetOrders(Guid userId);
+        IEnumerable<Order> GetOrders(Guid userId, Guid? id);
         void AddOrder(Order order);
         void ProcessOrder(Guid orderId);
     }

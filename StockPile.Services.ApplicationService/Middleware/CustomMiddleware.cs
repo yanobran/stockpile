@@ -13,9 +13,9 @@ namespace StockPile.Services.ApplicationService
     public class CustomMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly IStockPileRepository _repository;
+        private readonly IInventoryRepository _repository;
         private readonly IInventoryQryHandler _handler;
-        public CustomMiddleware(RequestDelegate next, IStockPileRepository repo, IInventoryQryHandler handler)
+        public CustomMiddleware(RequestDelegate next, IInventoryRepository repo, IInventoryQryHandler handler)
         {
             _next = next;
             _repository = repo;

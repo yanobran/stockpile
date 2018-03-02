@@ -5,7 +5,7 @@ import apiClient from '../services/apiclient';
 // mobx Best Practices: https://mobx.js.org/best/store.html
 // mobx shows a great way to build a more scalable store
 
-class InventoryStore {
+export default class InventoryStore {
     @observable brands = [];
     @observable products = [];
     @observable categories = [];
@@ -47,6 +47,18 @@ class InventoryStore {
         });
     }
 
+    @action getProduct(id) {
+        var results = [];
+        results = this.products.filter((prod) => {
+            return prod.Id == id;
+        });
+
+        if(!results || results.length == 0)
+            return null;
+
+        return results[0];
+    }
+
     @action updateFilter(prop, value) {
         this.filter[prop] = value;
     }
@@ -56,10 +68,3 @@ class InventoryStore {
     }
 
 }
-
-
-
-var store = window.store = new InventoryStore();
-
-
-export default store;

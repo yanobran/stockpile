@@ -1,10 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputType>exe</OutputType>
+  </PropertyGroup>
+
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
     <AssemblyName>StockPile.Services.ApplicationService</AssemblyName>
     <RootNamespace>StockPile.Services.ApplicationService</RootNamespace>
+    <ApplicationIcon />
+    <OutputTypeEx>exe</OutputTypeEx>
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StockPile.Data.MemoryDbImpl\StockPile.Data.MemoryDbImpl.csproj" />
+    <ProjectReference Include="..\StockPile.Messaging.Http\StockPile.Messaging.Http.csproj" />
     <ProjectReference Include="..\StockPile.Messaging\StockPile.Messaging.csproj" />
     <ProjectReference Include="..\StockPile.Query.Handlers\StockPile.Query.Handlers.csproj" />
     <ProjectReference Include="..\StockPile.Query\StockPile.Query.csproj" />
